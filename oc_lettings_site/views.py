@@ -21,7 +21,7 @@ def error_404(request, exception):
     :return: Render of the error_404.html template
     :rtype: HttpResponse"""
     data = {}
-    return render(request, 'error_404.html', data)
+    return render(request, 'error_404.html', data,status=404)
 
 
 def error_500(request):
@@ -32,4 +32,4 @@ def error_500(request):
     :rtype: HttpResponse""
     """
     data = {}
-    return render(request, 'error_500.html', data)
+    return render(request, 'error_500.html', data,status=500)
