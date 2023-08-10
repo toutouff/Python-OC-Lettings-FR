@@ -30,6 +30,7 @@ def profile(request, username):
     try:
         profile = Profile.objects.get(user__username=username)
     except Profile.DoesNotExist:
-        return render(request, 'profiles/profile.html', {'error': 'error : Profile not found'})
+        return render(request, 'profiles/profile.html', {'error': 'Error : Profile not found'}, status=404)
+
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)

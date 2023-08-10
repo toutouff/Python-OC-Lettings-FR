@@ -4,6 +4,7 @@ import django.conf.urls as error
 
 from . import views
 
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('', include('lettings.urls')),

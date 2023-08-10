@@ -22,3 +22,9 @@ class Test(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn('test_user', response.content.decode())
         self.assertIn('test_city', response.content.decode())
+
+    def test_profile_not_found(self):
+        url = reverse('profile', kwargs={'username': 'test_user2'})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+        self.assertIn('Error : Profile not found', response.content.decode())

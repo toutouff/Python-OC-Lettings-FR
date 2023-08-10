@@ -29,7 +29,7 @@ def letting(request, letting_id):
     try:
         letting = Letting.objects.get(id=letting_id)
     except Letting.DoesNotExist:
-        return render(request, 'lettings/letting.html', {'error': 'error : Letting not found'})
+        return render(request, 'lettings/letting.html', {'error': 'Error : Letting not found'},status=404)
     context = {
         'title': letting.title,
         'address': letting.address,

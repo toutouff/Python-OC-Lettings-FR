@@ -33,3 +33,9 @@ class Test(TestCase):
         self.assertIn('Letting 1', response.content.decode())
         self.assertIn('73 rue de la paix', response.content.decode())
 
+    def test_letting_not_found(self):
+        url = reverse('letting', args=[2])
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
+        self.assertIn('Error : Letting not found', response.content.decode())
+
