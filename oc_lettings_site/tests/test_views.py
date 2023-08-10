@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.urls import reverse
 
 
-
 class Test(TestCase):
     def test_index(self):
         url = reverse('index')

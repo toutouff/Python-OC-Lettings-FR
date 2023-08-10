@@ -1,16 +1,15 @@
+from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
-from django.contrib.auth.models import User
 from profiles.models import Profile
-from pprint import pprint
 
 
 class Test(TestCase):
     def setUp(self):
-        user = User.objects.create_user('test_user',password='test_password')
-        profile = Profile.objects.create(user=user,favorite_city='test_city')
+        user = User.objects.create_user('test_user', password='test_password')
+        Profile.objects.create(user=user, favorite_city='test_city')
 
-    def test_index(self,):
+    def test_index(self, ):
         url = reverse('profiles_index')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)

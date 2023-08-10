@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from .models import Letting
 
 
@@ -15,7 +16,6 @@ def index(request):
 
 
 def letting(request, letting_id):
-
     """
     Letting view
     :param request: HTTP request
@@ -29,7 +29,8 @@ def letting(request, letting_id):
     try:
         letting = Letting.objects.get(id=letting_id)
     except Letting.DoesNotExist:
-        return render(request, 'lettings/letting.html', {'error': 'Error : Letting not found'},status=404)
+        return render(request, 'lettings/letting.html',
+                      {'error': 'Error : Letting not found'}, status=404)
     context = {
         'title': letting.title,
         'address': letting.address,
