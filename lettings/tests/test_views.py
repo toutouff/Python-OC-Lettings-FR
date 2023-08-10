@@ -2,19 +2,20 @@ from django.test import TestCase
 from django.urls import reverse
 from lettings.models import Address, Letting
 
+
 class Test(TestCase):
     def setUp(self):
         data = {
-            'address' : {
-            'number': 73,
-            'street': 'rue de la paix',
-            'city': 'Paris',
-            'state': 'France',
-            'zip_code': 75000,
-            'country_iso_code': 'FR'
+            'address': {
+                'number': 73,
+                'street': 'rue de la paix',
+                'city': 'Paris',
+                'state': 'France',
+                'zip_code': 75000,
+                'country_iso_code': 'FR'
             },
-            'letting':{
-            'title': 'Letting 1',
+            'letting': {
+                'title': 'Letting 1',
             }
         }
         address = Address.objects.create(**data['address'])
@@ -38,4 +39,3 @@ class Test(TestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
         self.assertIn('Error : Letting not found', response.content.decode())
-

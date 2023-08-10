@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from .models import Profile
 
 
@@ -16,7 +17,6 @@ def index(request):
 
 
 def profile(request, username):
-
     """
     Profile view
     @param request: HTTP request
@@ -30,7 +30,8 @@ def profile(request, username):
     try:
         profile = Profile.objects.get(user__username=username)
     except Profile.DoesNotExist:
-        return render(request, 'profiles/profile.html', {'error': 'Error : Profile not found'}, status=404)
+        return render(request, 'profiles/profile.html',
+                      {'error': 'Error : Profile not found'}, status=404)
 
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)

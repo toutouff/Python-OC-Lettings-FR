@@ -1,9 +1,8 @@
+import django.conf.urls as error
 from django.contrib import admin
 from django.urls import path, include
-import django.conf.urls as error
 
 from . import views
-
 
 urlpatterns = [
     path('', views.index, name='index'),
