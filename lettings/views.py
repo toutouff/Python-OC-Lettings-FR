@@ -15,6 +15,7 @@ def index(request):
 
 
 def letting(request, letting_id):
+
     """
     Letting view
     :param request: HTTP request
@@ -25,7 +26,10 @@ def letting(request, letting_id):
     :rtype: HttpResponse
 
     """
-    letting = Letting.objects.get(id=letting_id)
+    try:
+        letting = Letting.objects.get(id=letting_id)
+    except Letting.DoesNotExist:
+        return render(request, 'lettings/letting.html', {'error': 'error : Letting not found'})
     context = {
         'title': letting.title,
         'address': letting.address,

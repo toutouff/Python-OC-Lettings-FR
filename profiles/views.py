@@ -16,6 +16,7 @@ def index(request):
 
 
 def profile(request, username):
+
     """
     Profile view
     @param request: HTTP request
@@ -25,6 +26,10 @@ def profile(request, username):
     @return: HTTP response
     @rtype: HttpResponse
     """
-    profile = Profile.objects.get(user__username=username)
+
+    try:
+        profile = Profile.objects.get(user__username=username)
+    except Profile.DoesNotExist:
+        return render(request, 'profiles/profile.html', {'error': 'error : Profile not found'})
     context = {'profile': profile}
     return render(request, 'profiles/profile.html', context)
