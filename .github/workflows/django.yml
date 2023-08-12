@@ -1,8 +1,6 @@
 name: Django CI
 
 on:
-  push:
-    branches: [ "*" ]
   pull_request:
     branches: [ "*" ]
 
@@ -35,5 +33,5 @@ jobs:
       uses: orgoro/coverage@v3.1
       with:
         coverageFile: coverage.xml
-        token: ${{ secrets.GITHUB_TOKEN }
+        token: ${{ secrets.GITHUB_TOKEN }}
         thresholdAll: 0.8 # optional, default is 0.0
