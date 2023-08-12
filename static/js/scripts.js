@@ -3,7 +3,7 @@
     * Copyright 2013-2021 Start Bootstrap
     * Licensed under SEE_LICENSE (https://github.com/BlackrockDigital/sb-ui-kit-pro/blob/master/LICENSE)
     */
-    window.addEventListener('DOMContentLoaded', event => {
+window.addEventListener('DOMContentLoaded', event => {
     // Activate feather
     feather.replace();
 
@@ -30,7 +30,7 @@
 
     // Collapse Navbar
     // Add styling fallback for when a transparent background .navbar-marketing is scrolled
-    var navbarCollapse = function() {
+    var navbarCollapse = function () {
         const navbarMarketingTransparentFixed = document.body.querySelector('.navbar-marketing.bg-transparent.fixed-top');
         if (!navbarMarketingTransparentFixed) {
             return;

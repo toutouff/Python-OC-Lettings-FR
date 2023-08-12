@@ -2,6 +2,10 @@
 
 Site web d'Orange County Lettings
 
+## Status
+
+[![Django CI](https://github.com/toutouff/Python-OC-Lettings-FR/actions/workflows/django.yml/badge.svg)](https://github.com/toutouff/Python-OC-Lettings-FR/actions/workflows/django.yml)
+
 ## Développement local
 
 ### Prérequis
@@ -11,7 +15,8 @@ Site web d'Orange County Lettings
 - SQLite3 CLI
 - Interpréteur Python, version 3.6 ou supérieure
 
-Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
+Dans le reste de la documentation sur le développement local, il est supposé que la commande `python` de votre OS shell
+exécute l'interpréteur Python ci-dessus (à moins qu'un environnement virtuel ne soit activé).
 
 ### macOS / Linux
 
@@ -27,7 +32,7 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - `apt-get install python3-venv` (Si l'étape précédente comporte des erreurs avec un paquet non trouvé sur Ubuntu)
 - Activer l'environnement `source venv/bin/activate`
 - Confirmer que la commande `python` exécute l'interpréteur Python dans l'environnement virtuel
-`which python`
+  `which python`
 - Confirmer que la version de l'interpréteur Python est la version 3.6 ou supérieure `python --version`
 - Confirmer que la commande `pip` exécute l'exécutable pip dans l'environnement virtuel, `which pip`
 - Pour désactiver l'environnement, `deactivate`
@@ -73,5 +78,5 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 
 Utilisation de PowerShell, comme ci-dessus sauf :
 
-- Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
+- Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1`
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
