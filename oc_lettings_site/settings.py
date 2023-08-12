@@ -13,20 +13,6 @@ sentry_logging = LoggingIntegration(
 
 
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "handlers": {
-        "console": {
-            "class": "logging.StreamHandler",
-        },
-    },
-    "root": {
-        "handlers": ["console"],
-        "level": "WARNING",
-    },
-}
-
 sentry_sdk.init(
     dsn="https://3e4bfaedac5773e0afa9785b1bc80f37@o4505680777641984.ingest.sentry.io/4505680778952704",
 
@@ -161,3 +147,44 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static", ]
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[{levelname} {asctime} {module}]{message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'INFO',  # Capture log messages at INFO level and higher
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR/'logs.log',
+            'formatter': 'verbose',
+        },
+        'console': {
+            'level': 'INFO',  # Capture log messages at INFO level and higher
+            'class': 'logging.StreamHandler',
+            'formatter': 'verbose',
+        }
+    },
+    'root': {
+        'handlers': ['file'],
+        'level': 'DEBUG',
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file','console'],
+            'level': 'INFO',  # Capture log messages at INFO level and higher
+            'propagate': True,
+        },
+        'django.request': {  # Adding this configuration for request-specific logging
+          'handlers': ['file','console'],
+          'level': 'INFO',  # Capture log messages at INFO level and higher
+          'propagate': False,  # Don't propagate to the root logger
+        },
+    },
+}
