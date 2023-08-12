@@ -28,3 +28,9 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
+    - name: Python Coverage
+      uses: orgoro/coverage@v3.1
+      with:
+        coverageFile: coverage.xml
+        token: ${{ secrets.GITHUB_TOKEN }
+        thresholdAll: 0.8 # optional, default is 0.0
