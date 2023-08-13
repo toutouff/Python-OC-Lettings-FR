@@ -1,5 +1,5 @@
 ## pull base image
-FROM python
+FROM python:slim
 
 # Set environment variables
 ENV PIP_DISABLE_PIP_VERSION_CHECK 1
@@ -15,7 +15,7 @@ RUN pip install -r requirements.txt
 # Copy project
 COPY . . 
 
+EXPOSE 8000
 
+CMD python manage.py runserver --insecure 0.0.0.0:8000
 
-# Run the application.
-CMD python manage.py runserver
