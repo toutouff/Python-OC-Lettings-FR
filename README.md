@@ -2,10 +2,6 @@
 
 Site web d'Orange County Lettings
 
-## Status
-
-[![Django CI](https://github.com/toutouff/Python-OC-Lettings-FR/actions/workflows/django.yml/badge.svg)](https://github.com/toutouff/Python-OC-Lettings-FR/actions/workflows/django.yml)
-
 ## Développement local
 
 ### Prérequis
