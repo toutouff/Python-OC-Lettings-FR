@@ -14,5 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: creating custom tag
+      run: SOURCE_COMMIT=$(git rev-parse HEAD)
     - name: Build the Docker image
-      run: docker compose up
+      run: docker compose build
