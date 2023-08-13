@@ -17,5 +17,4 @@ jobs:
     - name: creating custom tag
       run: SOURCE_COMMIT=$(git rev-parse HEAD)
     - name: Build the Docker image
-      run: docker build -t ${{SOURCE_COMMIT}}
-
+      run: docker build -t ${{ SOURCE_COMMIT }}
