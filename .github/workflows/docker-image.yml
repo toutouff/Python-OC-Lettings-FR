@@ -17,6 +17,6 @@ jobs:
     - name: Build the Docker image
       run: docker build . -t oc_lettings:${{ github.sha }}
     - name: login to dockerhub
-      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p {{ secrets.DOCKER_KEY }} https://hub.docker.com/r/tounecharp/oc_lettings
+      run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_KEY }} https://hub.docker.com/r/tounecharp/oc_lettings
     - name: Push the docker image
       run: docker push -a oc_lettings
