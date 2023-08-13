@@ -20,4 +20,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_KEY }}
     - name: Pushing to DockerHub
-      run: docker push -a tounecharp/oc_lettings
+      run: docker push -a ${{ secrets.DOCKER_USERNAME}}/oc_lettings
