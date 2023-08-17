@@ -1,6 +1,13 @@
-name: Pylint
+name: Linting
 
-on: [push]
+on:
+  push:
+    branches: ['*']
+  workflow_run:
+    workflows: ["Django CI"]
+    types:
+      - completed
+  
 
 jobs:
   build:
