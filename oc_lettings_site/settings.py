@@ -12,7 +12,8 @@ sentry_logging = LoggingIntegration(
 )
 
 sentry_sdk.init(
-    dsn="https://3e4bfaedac5773e0afa9785b1bc80f37@o4505680777641984.ingest.sentry.io/4505680778952704",
+    dsn="https://3e4bfaedac5773e0afa9785b1bc80f37@o4505680777641984"
+        ".ingest.sentry.io/4505680778952704",
 
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
@@ -167,12 +168,12 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['file','console'],
+            'handlers': ['file', 'console'],
             'level': 'INFO',  # Capture log messages at INFO level and higher
             'propagate': True,
         },
         'django.request': {  # Adding this configuration for request-specific logging
-          'handlers': ['file','console'],
+          'handlers': ['file', 'console'],
           'level': 'INFO',  # Capture log messages at INFO level and higher
           'propagate': False,  # Don't propagate to the root logger
         },
