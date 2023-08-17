@@ -3,6 +3,12 @@ name: Docker Image Build and Push
 on:
   pull_request:
     branches: [ "master" , "production" ]
+  workflow_run:
+    workflows: [ "Linting" , "Django CI" ]
+    types:
+      - completed
+    
+    
 
 jobs:
 
