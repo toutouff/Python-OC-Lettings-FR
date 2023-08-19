@@ -5,6 +5,10 @@ on:
     branches: [ production ]
   pull_request:
     branches: [ production ]
+  workflow_run:
+    workflows: ["Docker Image Build and Push"]
+    types:
+      - completed
 
 jobs:
   build:
